@@ -2,14 +2,18 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.20.
 
+Clone the repo from GitHub "https://github.com/harold21/Bank-Account-Project.git"
+
 ## Front-End App
 
+On the console go to the 'banck-account-web' folder
 Run `npm start` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 ## Service API
 
-Clone the repository
-Run `npm start` for run the server in port > 3000
+On the root folder:
+Run `npm start`
+for run the server in port > 3000
 
 Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
