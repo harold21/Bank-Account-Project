@@ -12,8 +12,8 @@ Run `npm start` for a dev server. Navigate to `http://localhost:4200/`. The app 
 ## Service API
 
 On the root folder:
-Run `npm start`
-for run the server in port > 3000
+Run > `npm start`
+for running the server in port > 3000
 
 Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
