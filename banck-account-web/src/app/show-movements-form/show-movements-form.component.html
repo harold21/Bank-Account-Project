@@ -1,0 +1,26 @@
+<form [formGroup]="movementsForm" (ngSubmit)="onSubmit()">
+    <legend>Account Movements</legend>
+
+    <div>
+            <button type="submit" class="btn btn-primary" ng-click="onSubmit()">Load Movements</button>
+    </div>
+
+    <br>
+
+	<div class="form-group">
+        <table>
+                <tr>
+                <th>Items</th>
+                <th>Type</th>
+                <th>amount</th>
+                <th>Date</th>
+                </tr>
+                <tr *ngFor="let movement of movements">
+                    <td>{{movement.transactionId}}</td>
+                    <td>{{movement.type}}</td>
+                    <td>{{movement.value}}</td>
+                    <td>12/12/2019</td>
+                </tr>
+        </table>
+	</div>
+</form>
