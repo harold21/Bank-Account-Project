@@ -20,7 +20,10 @@ After that run:
 ```bash
 $ npm start
 ```
-Next locate in the 'banck-account-web' folder and run the follow command:
+Next locate in the 'banck-account-web' folder and run the follow commands:
+```bash
+$ npm update
+```
 ```bash
 $ ng serve
 ```
