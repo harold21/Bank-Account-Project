@@ -4,6 +4,7 @@ let Validator = require('fastest-validator');
 let account = {};
 let counter = 0;
 account.balance = 0;
+account.movements = [];
 
 let transactionValidator = new Validator();
 
@@ -52,7 +53,7 @@ class TransactionService
 			account.balance -= transaction.value;
 		}
 
-		account[transaction.transactionId] = transaction;
+		account.movements[transaction.transactionId] = transaction;
 
 		return transaction;
 	}

@@ -2,25 +2,28 @@
     <legend>Account Movements</legend>
 
     <div>
-            <button type="submit" class="btn btn-primary" ng-click="onSubmit()">Load Movements</button>
+            <button type="submit" class="btn btn-primary" (click)="onSubmit()">Load Movements</button>
     </div>
-
+    <div class="form-group" class="form-group">
+        <label for="amount" class="control-label">Balance</label>
+        <input type="text" class="form-control" id="balance" name="balance" placeholder="200,00" formControlName="balance" readonly>        
+    </div>
     <br>
 
-	<div class="form-group">
-        <table>
-                <tr>
-                <th>Items</th>
-                <th>Type</th>
-                <th>amount</th>
-                <th>Date</th>
-                </tr>
-                <tr *ngFor="let movement of movements">
-                    <td>{{movement.transactionId}}</td>
-                    <td>{{movement.type}}</td>
-                    <td>{{movement.value}}</td>
-                    <td>12/12/2019</td>
-                </tr>
-        </table>
+	<div class="form-group"  *ngIf="movements" >
+                <table>
+                        <tr>
+                        <th>Items</th>
+                        <th>Type</th>
+                        <th>amount</th>
+                        <th>Date</th>
+                        </tr>
+                        <tr *ngFor="let movement of movements.movements">
+                        <td>{{movement.transactionId}}</td>
+                        <td>{{movement.type}}</td>
+                        <td>{{movement.value}}</td>
+                        <td>12/12/2019</td>
+                        </tr>
+                </table>
 	</div>
 </form>

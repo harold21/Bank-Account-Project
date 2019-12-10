@@ -1,10 +1,10 @@
 <form [formGroup]="transactionForm" (ngSubmit)="onSubmit()">
 
-        <legend>Account Transaction</legend>
+        <legend>Account Transaction</legend>      
 
 	<div class="form-group" [ngClass]="{ 'has-error': invalidTransactionType() }">
 		<label class="control-label">Transaction Type</label><br>
-                <select class="browser-default custom-select form-control" id="transactionType" formControlName="transactionType">
+                <select class="browser-default custom-select form-control" id="type" formControlName="type">
                         <option selected>Select an option</option>
                         <option value="credit">Credit</option>
                         <option value="debit">Debit</option>
@@ -14,11 +14,12 @@
 
 	<div class="form-group" class="form-group" [ngClass]="{ 'has-error': invalidAmount() }">
 		<label for="amount" class="control-label">Amount</label>
-                <input type="text" class="form-control" id="amount" name="amount" placeholder="200,00" formControlName="amount">
+                <input type="text" class="form-control" id="value" name="value" placeholder="200,00" formControlName="value">
                 <p *ngIf="invalidAmount()" id="amount_error" class="help-block">Invalid amount.</p>
 	</div>
 
 	<div class="form-group has-error">
                 <button type="submit" class="btn btn-primary">Save</button>
+                <p *ngIf="transactionState()" id="transaction_result" class="help-block">Transaction Saved!</p>
         </div>
 </form>

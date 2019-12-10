@@ -13,37 +13,41 @@ export class TransactionBanckingFromComponent implements OnInit {
 
   registered = false;
   submitted = false;
+  saved = false;
   transactionForm: FormGroup;
   serviceErrors: any = {};
   constructor(private formBuilder: FormBuilder, private http: HttpClient, private router: Router) {
   }
 
   invalidTransactionType() {
-    return (this.submitted && this.transactionForm.controls.transactionType.errors != null);
+    return (this.submitted && this.transactionForm.controls.type.errors != null);
   }
 
   invalidAmount() {
-    return (this.submitted && this.transactionForm.controls.amount.errors != null);
+    return (this.submitted && this.transactionForm.controls.value.errors != null);
+  }
+
+  transactionState() {
+    return this.saved;
   }
 
   ngOnInit() {
     this.transactionForm = this.formBuilder.group({
-      transactionType: ['', Validators.required],
-      amount: ['', Validators.required]
+      type: ['', Validators.required],
+      value: ['', Validators.required]
     });
   }
 
   onSubmit() {
     this.submitted = true;
 
-    if (this.transactionForm.controls.amount.invalid && this.transactionForm.controls.transactionType.invalid) {
+    if (this.transactionForm.invalid) {
       return;
     } else {
       const data: any = Object.assign(this.transactionForm.value);
-
-      this.http.post('/api/v1/transaction', data).subscribe(() => {
-        const path = '/transactions';
-        this.router.navigate([path]);
+      data.value = +data.value;
+      this.http.post('http://localhost:3000/api/v1/transaction', data).subscribe(() => {
+        this.saved = true;
       }, error => {
         this.serviceErrors = error.error.error;
         });

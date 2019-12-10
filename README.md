@@ -1,22 +1,34 @@
-# BanckAccountWeb
+# Banck Account Web
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.20.
+This is a basic emulatior of a banck account page.
 
-Clone the repo from GitHub "https://github.com/harold21/Bank-Account-Project.git"
+## Installation
 
-## Front-End App
+Clone the repo from GitHub locally.
 
-On the console go to the 'banck-account-web' folder
-Run `npm start` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+```bash
+$ git clone https://github.com/harold21/Bank-Account-Project.git
+```
 
-## Service API
+## Installation
 
-On the root folder:
-Run > `npm start`
-for running the server in port > 3000
+In the root project run the follow command:
+```bash
+$ npm install
+```
+After that run:
+```bash
+$ npm start
+```
+Next locate in the 'banck-account-web' folder and run the follow command:
+```bash
+$ ng serve
+```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Usage
 
-## Build
+For make credit and debit transactions go to the route:
+http://localhost:4200/transactions
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+For view the movements generated in the transactions page go to the route:
+http://localhost:4200/movements

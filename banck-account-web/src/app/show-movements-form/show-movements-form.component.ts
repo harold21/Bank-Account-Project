@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { FormGroup, } from '@angular/forms';
+import { FormGroup, FormBuilder, } from '@angular/forms';
 
 @Component({
   selector: 'app-show-movements-form',
@@ -9,23 +9,31 @@ import { FormGroup, } from '@angular/forms';
 })
 export class ShowMovementsFormComponent implements OnInit {
 
-  movements: any = {};
-  transactionForm: FormGroup;
+  movements: any;
+  movementsForm: FormGroup;
 
-  constructor(private http: HttpClient) {}
+  constructor(private formBuilder: FormBuilder, private http: HttpClient) {}
 
   ngOnInit() {
-    this.http.get('/api/v1/transaction').subscribe((data: any) => {
+    this.formBuild();
+    this.http.get('http://localhost:3000/api/v1/transaction').subscribe((data: any) => {
       this.movements = data.transactions;
+      this.movementsForm.patchValue({balance: this.movements.balance});
     }, error => {
       console.log('There was an error getting the movements', error);
     });
   }
 
+  formBuild() {
+    this.movementsForm = this.formBuilder.group({
+      balance: [''],
+    });
+  }
+
   onSubmit() {
-    console.log('Ok');
-    this.http.get('/api/v1/transaction').subscribe((data: any) => {
+    this.http.get('http://localhost:3000/api/v1/transaction').subscribe((data: any) => {
       this.movements = data.transactions;
+      this.movementsForm.patchValue({balance: this.movements.balance});
     }, error => {
       console.log('There was an error getting the movements', error);
     });
